@@ -17,17 +17,17 @@ public class DatabaseRepository implements Repository {
         Statement s=con.createStatement();
         String query = "select * from project where projectId='"+id+"'";
         rs= s.executeQuery(query);
-        ProjectRecord pr = new ProjectRecord();
+        ProjectRecord projectRecord = new ProjectRecord();
             while (rs.next()){
-                pr.projId=rs.getString("ProjectId");
-                pr.title=rs.getString("title");
-                pr.clientId=rs.getString("clientId");
-                pr.duration=rs.getInt("duration");
-                pr.rate=rs.getInt("rate");
-                pr.numberOfAllocationResources=rs.getInt("numberOfAllocationResource");
-                pr.type=rs.getString("type");
+                projectRecord.projId=rs.getString("ProjectId");
+                projectRecord.title=rs.getString("title");
+                projectRecord.clientId=rs.getString("clientId");
+                projectRecord.duration=rs.getInt("duration");
+                projectRecord.rate=rs.getInt("rate");
+                projectRecord.numberOfAllocationResources=rs.getInt("numberOfAllocationResource");
+                projectRecord.type=rs.getString("type");
 
             }
-            return pr;
+            return projectRecord;
     }
 }
